@@ -1,0 +1,309 @@
+% icstdoc.tex V1.12 6 May 2011
+
+\documentclass[fonts]{icst}
+
+\usepackage{moreverb}
+
+\usepackage[breaklinks,colorlinks,bookmarksopen,bookmarksnumbered,linkcolor=ICSTblue,citecolor=blue,urlcolor=ICSTblue]{hyperref}
+\usepackage{breakurl}
+\usepackage{doi}
+
+
+\newcommand\BibTeX{{\rmfamily B\kern-.05em \textsc{i\kern-.025em b}\kern-.08em
+T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+\def\volumeyear{YYYY}
+
+\journalname{XXXXXX}
+\articletype{Research Article/Editorial}
+\setcounter{page}{01}
+
+  \def\copyrightholder{Author Name\textit{ et al.}, licensed to EAI}
+  \copyrightnote{This is an open access article distributed under the terms of the \href{https://creativecommons.org/licenses/by-nc-sa/4.0/}{CC BY-NC-SA 4.0}, which permits copying, redistributing, remixing, transformation, and building upon the material in any medium so long as the original work is properly cited.}
+  \def\articledoi{10.4108/XX.X.X.XX}
+\received{XXXX}
+  \accepted{XXXX}
+  \published{XXXX}
+
+\begin{document}
+
+\runningheads{A. Smith, J.R. Wakeling}{A demonstration of the \LaTeXe \ class file for \journalabb\ }
+
+\title{A demonstration of the \LaTeXe\ class file for
+\itshape{\journalnamelc}\tnoteref{1}}
+
+\author{Alistair Smith\affil{1}, Joseph Rushton Wakeling\affil{2}\fnoteref{1}}
+
+\address{\affilnum{1}Sunrise Setting Ltd, 12a Fore Street, St. Marychurch, Torquay, Devon, TQ1~4NE, UK\\
+\affilnum{2}European Alliance for Innovation (EAI), Gent, Belgium}
+
+\abstract{INTRODUCTION: This is the introductory text. \\
+OBJECTIVES: This is the objective of this paper. \\
+METHODS: Techniques derived from social network analysis for employed to conduct this research. \\
+RESULTS: The main results obtained in this paper are the following. \\
+CONCLUSION: These are the conclusions of this paper.}
+
+\keywords{class file, \LaTeXe, \emph{\journalabb}}
+
+\tnotetext[1]{This is an example of a footnote to the title.}
+
+
+\fnotetext[1]{Corresponding author.  Email: \email{author@emailaddress.com}}
+
+\maketitle
+
+\section{Introduction}
+Many authors submitting to research journals use \LaTeXe\ to
+prepare their papers. This paper describes the
+\textsf{\journalclass} class file which can be used to convert
+articles produced with other \LaTeXe\ class files into the correct
+form for publication in \emph{\journalnamelc}.
+
+The \textsf{\journalclass} class file preserves much of the
+standard \LaTeXe\ interface so that any document which was
+produced using the standard \LaTeXe\ \textsf{article} style can
+easily be converted to work with the \textsf{\journalclassshort}
+style. However, the width of text and typesize will vary from that
+of \textsf{article.cls}; therefore, \emph{line breaks will change}
+and it is likely that displayed mathematics and tabular material
+will need re-setting.
+
+In the following sections we describe how to lay out your code to
+use \textsf{\journalclass} to reproduce the typographical look of
+\emph{\journalnamelc}. However, this paper is not a guide to
+using \LaTeXe\ and we would refer you to any of the many books
+available (see, for example, \cite{R1,R2,R3}).
+
+\section{The three golden rules}
+Before we proceed, we would like to stress \emph{three golden
+rules} that need to be followed to enable the most efficient use
+of your code at the typesetting stage:
+\begin{enumerate}
+\item[(i)] keep your own macros to an absolute minimum;
+
+\item[(ii)] as \TeX\ is designed to make sensible spacing
+decisions by itself, do \emph{not} use explicit horizontal or
+vertical spacing commands, except in a few accepted (mostly
+mathematical) situations, such as \verb"\," before a
+differential~d, or \verb"\quad" to separate an equation from its
+qualifier;
+
+\item[(iii)] follow the \emph{\journalnamelc} reference style.
+\end{enumerate}
+
+\section{Getting started}
+The \textsf{\journalclassshort} class file should run
+on any standard \LaTeXe\ installation. If any of the fonts, style
+files or packages it requires are missing from your installation,
+they can be found at CTAN.
+
+\emph{\journalnamelc} are published using a combination of Kp-Fonts
+and Iwona typefaces. This is achieved by using the \verb"fonts"
+option as\\
+\verb"\documentclass[fonts]{icst}".
+
+\noindent If for any reason you have a problem using this
+combination you can easily resort to Computer Modern fonts by
+removing the \verb"fonts" option.
+
+\begin{figure*}
+\setlength{\fboxsep}{0pt}%
+\setlength{\fboxrule}{0pt}%
+\begin{center}
+\begin{boxedverbatim}
+\documentclass[fonts]{icst}
+%\documentclass[fonts,doublespace]{icst}%For paper submission
+
+\begin{document}
+
+\runningheads{<Initials and Surnames>}{<Short title>}
+
+\title{<Initial caps>}
+%\title{<Initial caps>\tnoteref{1}}
+
+\author{<An Author\affil{1}, Someone Else\affil{2}\fnoteref{1},
+Perhaps Another\affil{1}>}
+
+\address{<\affilnum{1}First author's address
+(in this example it is the same as the third author)\\
+\affilnum{2}Second author's address>}
+
+%\tnotetext[1]{<Footnote to the title, if needed>}
+
+\fnotetext[1]{Corresponding author. \email{<email address>}}
+%Corresponding author is the second author in this example
+
+%\fnotetext[2]{<Text as needed>}
+
+\abstract{<Text>}
+
+\keywords{<List keywords>}
+
+\maketitle
+
+\section{Introduction}
+.
+.
+.
+\end{boxedverbatim}
+\end{center}
+%\vspace{-12pt}
+\caption{Example header text\label{F1}}
+\end{figure*}
+
+
+\section{The article header information}
+The heading for any file using \textsf{\journalclass} is shown in
+Figure~\ref{F1}.
+
+\subsection{Remarks}
+\begin{enumerate}
+\item[(i)] In \verb"\runningheads" use `\emph{et~al.}' if there
+are four or more authors.
+
+\item[(ii)] Note the use of \verb"\tnoteref{<id num>}" and \verb "\tnotetext[<id num>]{<Text>}" for setting footnotes to the title
+
+Also note the use of \verb"\fnoteref{<id num>}" and
+\verb"\fnotetext[<id num>]{<Text>}" for setting footnotes to author names. At
+least one of these must identify the `Corresponding author' (as in the example shown in Figure~\ref{F1})
+
+\item[(iii)] For submitting a double-spaced manuscript, add
+\verb"doublespace" as an option to the documentclass line.
+
+\item[(iv)] The abstract should be capable of standing by itself,
+in the absence of the body of the article and of the bibliography.
+Therefore, it must not contain any reference citations.
+
+\item[(v)] Keywords are separated by commas.
+\end{enumerate}
+
+\begin{figure}
+\setlength{\fboxsep}{0pt}%
+\setlength{\fboxrule}{0pt}%
+\begin{center}
+\begin{boxedverbatim}
+\begin{table}\small\sf
+\caption{<Table caption>}
+\centering
+\begin{tabular}{<table alignment>}
+\toprule
+<column headings>\\
+\midrule
+<table entries
+(separated by & as usual)>\\
+<table entries>\\
+.
+.
+.\\
+\bottomrule
+\end{tabular}
+\end{table}
+\end{boxedverbatim}
+\end{center}
+\caption{Example table layout\label{F2}}
+\end{figure}
+
+
+\section{The body of the article}
+
+\subsection{Mathematics} \textsf{\journalclass} makes the full
+functionality of \AmS\/\TeX\ available. We encourage the use of
+the \verb"align", \verb"gather" and \verb"multline" environments
+for displayed mathematics. \textsf{amsthm} is used for setting
+theorem-like and proof environments. The usual \verb"\newtheorem"
+command needs to be used to set up the environments for your
+particular document.
+
+\subsection{Figures and Tables} \textsf{\journalclass} includes the
+\textsf{graphicx} package for handling figures.
+
+Figures are called in as follows:
+\begin{verbatim}
+\begin{figure}
+\centering
+\includegraphics{<figure name>}
+\caption{<Figure caption>}
+\end{figure}
+\end{verbatim}
+
+For further details on how to size figures, etc., with the
+\textsf{graphicx} package see, for example, \cite{R1}
+or \cite{R3}. If figures are available in an
+acceptable format (for example, .eps, .ps) they will be used but a
+printed version should always be provided. \medbreak
+
+The standard coding for a table is shown in Figure~\ref{F2}.
+
+\subsection{Footnotes}
+Note the use of \verb"\footnote{<Text>}" for setting footnotes to the text in the body of the article. Unlike the footnotes in the article header, these footnotes are in the number format\footnote{This is an example of a footnote to the text in the body of the article.}. 
+
+\subsection{Cross-referencing}
+The use of the \LaTeX\ cross-reference system
+for figures, tables, equations, etc., is encouraged
+(using \verb"\ref{<name>}" and \verb"\label{<name>}").
+
+\subsection{Appendices}
+Code appendices as follows.
+\begin{verbatim}
+\begin{appendices}
+\section{<The first appendix title>}
+.
+.
+.
+\subsection{The first subappendix}
+
+\appendix
+\section{<The second appendix title>}
+.
+.
+.
+\end{appendices}
+\end{verbatim}
+
+
+\subsection{Acknowledgements} An Acknowledgements section is started with \verb"\ack" or
+\verb"\acks" for \textit{Acknowledgement} or
+\textit{Acknowledgements}, respectively. It must be placed just
+before the References.
+
+\subsection{Bibliography}
+The \emph{\journalnamelc} allows the Vancouver
+reference style which is also the default style.
+
+Please note that the file \textsf{icstnum.bst} (which outputs references in the Vancouver style) is available from the same
+download page for those authors using \BibTeX.
+
+\subsection{Double Spacing}
+If you need to double space your document for submission please
+use the \verb+doublespace+ option as shown in the sample layout in
+Figure~\ref{F1}.
+
+\section{Support for \textsf{\journalclass}}
+We offer on-line support to participating authors. Please contact
+us via e-mail at \email{publications@eai.eu}
+
+We would welcome any feedback, positive or otherwise, on your
+experiences of using \textsf{\journalclass}.
+
+\section{Copyright statement}
+Please  be  aware that the use of  this \LaTeXe\ class file is
+governed by the following conditions.
+
+\subsection{Copyright}
+The Copyright licensed to EAI.
+
+\ack This class file was developed by Sunrise Setting Ltd,
+Torquay, Devon, UK. Website:\\
+\href{http://www.sunrise-setting.co.uk}{\texttt{www.sunrise-setting.co.uk}}
+
+\begin{thebibliography}{9}
+
+\bibitem{R1} \textsc{Kopka~H.} and \textsc{Daly~P.W.} (2003) \emph{A Guide to \LaTeX}
+(Addison-Wesley), 4th~ed.
+
+\bibitem{R2} \textsc{Lamport~L.} (1994) \emph{\LaTeX: a Document Preparation System}
+(Addison-Wesley), 2nd~ed.
+
+\bibitem{R3} \textsc{Mittelbach~F.} and \textsc{Goossens~M} (2004) \emph{The \LaTeX\ Companion} (Addison-Wesley), 2nd~ed.
+\end{thebibliography}
+\end{document}
