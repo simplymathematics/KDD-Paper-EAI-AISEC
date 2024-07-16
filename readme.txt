@@ -1,19 +1,21 @@
-Dear LLNCS user,
+Dear reader, 
 
-The files in this directory belong to the LaTeX2e package for
-Lecture Notes in Computer Science (LNCS) of Springer-Verlag.
+this repository is organized as follows:
+.
+├── appendix-1.tex --> appendix 1
+├── appendix-2.tex --> appendix 2
+├── bibliography.bib
+├── generated/ --> images for the generated dataset
+├── icst.cls/  --> Latex style file
+├── icstnum.bst --> Bibliography style file
+├── icst.tex --> tex formatting file
+├── kdd-nsl/ --> images for the kdd-nsl dataset
+├── main.tex --> the document 
+├── ppgd.png --> png file of diagram
+├── ppgd.svg --> vector graphic of diagram
+├── readme.txt --> this file
+├── slides.tex --> slides presented at conference
+└── truthseeker/ --> images for truthseeker dataset
 
-It consists of the following files:
+All images generated from data are available in their respective directories as .eps files. The diagram is available as both a .png and an .svg. However, only the png file is used in the main.tex.
 
-  readme.txt         this file
-
-  history.txt        the version history of the package
-
-  llncs.cls          the LaTeX2e document class
-
-  samplepaper.tex    a sample paper
-  fig1.eps           a figure used in the sample paper
-
-  llncsdoc.pdf       the documentation of the class (PDF version)
-
-  splncs04.bst       current LNCS BibTeX style with alphabetic sorting
