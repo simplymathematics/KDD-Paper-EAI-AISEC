@@ -10,7 +10,8 @@ this repository is organized as follows:
 ├── icstnum.bst --> Bibliography style file
 ├── icst.tex --> tex formatting file
 ├── kdd-nsl/ --> images for the kdd-nsl dataset
-├── main.tex --> the document 
+├── main.pdf --> a rendered version of the  document
+├── main.tex --> the document's main tex file
 ├── ppgd.png --> png file of diagram
 ├── ppgd.svg --> vector graphic of diagram
 ├── readme.txt --> this file
@@ -18,4 +19,3 @@ this repository is organized as follows:
 └── truthseeker/ --> images for truthseeker dataset
 
 All images generated from data are available in their respective directories as .eps files. The diagram is available as both a .png and an .svg. However, only the png file is used in the main.tex.
-
