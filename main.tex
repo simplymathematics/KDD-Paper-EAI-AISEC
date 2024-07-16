@@ -344,21 +344,21 @@ In the section below, we examine the performance, the robustness, the attack tim
     \centering
     \begin{subfigure}{.45\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{./generated/accuracy_vs_samples.pdf}
+        \includegraphics[width=\textwidth]{./generated/accuracy_vs_samples.eps}
         \caption{Model Performance vs Database Size: This depicts the benign performance  of a model  (\textit{e.g.}~accuracy on unperturbed data) when trained on databases of difference sizes for each tested kernel.}
         \label{fig:samples_acc}
     \end{subfigure}
     \hfill
     \begin{subfigure}{.45\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{./generated/accuracy_vs_features.pdf}
+        \includegraphics[width=\textwidth]{./generated/accuracy_vs_features.eps}
         \caption{Model Performance vs Feature Space: This depicts the benign performance of a model (\textit{e.g.}~accuracy on unperturbed data) when trained on a differing number of features. In addition, marginal features are less correlated with the label than earlier features, simulating the addition of a large number of noisy features, leading to increasingly inaccurate models.}
         \label{fig:features_acc}
     \end{subfigure}
     \hfill
     \begin{subfigure}{.45\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{./generated/train_time_vs_samples.pdf}
+        \includegraphics[width=\textwidth]{./generated/train_time_vs_samples.eps}
         \caption{Training and Attack Times vs Database Size: This shows the time requirements to build models and attacks on databases of different sizes.
         }
         \label{fig:samples_time}
@@ -366,7 +366,7 @@ In the section below, we examine the performance, the robustness, the attack tim
     \hfill
     \begin{subfigure}{.45\textwidth}
       \centering
-        \includegraphics[width=\textwidth]{./generated/train_time_vs_features.pdf}
+        \includegraphics[width=\textwidth]{./generated/train_time_vs_features.eps}
         \caption{Training and Attack Times vs Feature Space Size: This shows the time requirements to build models and attacks on feature space of different sizes. 
         }
         \label{fig:features_time}
@@ -377,7 +377,7 @@ In the section below, we examine the performance, the robustness, the attack tim
 
 \begin{figure*}[!htb]
   \centering
-  \includegraphics[width=.75\textwidth]{./generated/accuracy_vs_attack_parameters.pdf}
+  \includegraphics[width=.75\textwidth]{./generated/accuracy_vs_attack_parameters.eps}
    \caption{Attack Parameters vs Accuracy: This depicts how various attack hyperparameters change the accuracy.
    }
    \label{fig:attack_accuracy}
@@ -386,7 +386,7 @@ In the section below, we examine the performance, the robustness, the attack tim
 
 \begin{figure*}
     \centering
-    \includegraphics[width=.75\textwidth]{./generated/train_time_vs_attack_parameters.pdf}
+    \includegraphics[width=.75\textwidth]{./generated/train_time_vs_attack_parameters.eps}
     \caption{Attack Parameters vs Time: This depicts how various attack hyperparametrs change the run-time.}
     \label{fig:attack_time}
 \end{figure*}
@@ -418,28 +418,28 @@ Attack time and error had a correlation of 0.18 suggesting that a clever choice 
      \centering
      \begin{subfigure}[b]{0.45\textwidth}
          \centering
-         \includegraphics[width=\textwidth]{./generated/retrain_accuracy.pdf}
+         \includegraphics[width=\textwidth]{./generated/retrain_accuracy.eps}
          \caption{Adversarial Retraining: Accuracy over several retraining cycles. The blue indicates the performance on unpertured data and the red indicates performance on the adversarial data.}
         \label{fig:retrain_acc}
      \end{subfigure}
      \hfill
      \begin{subfigure}[b]{0.45\textwidth}
          \centering
-         \includegraphics[width=\textwidth]{./generated/retrain_time.pdf}
+         \includegraphics[width=\textwidth]{./generated/retrain_time.eps}
          \caption{Adversarial Retraining: Training and attack times (blue or red respectively) over several retraining cycles with $d_{max} = 1$}
          \label{fig:retrain_time}
      \end{subfigure}
      \hfill
      \begin{subfigure}[b]{0.45\textwidth}
          \centering
-         \includegraphics[width=\textwidth]{./generated/confidence_vs_attack_parameters.pdf}
+         \includegraphics[width=\textwidth]{./generated/confidence_vs_attack_parameters.eps}
          \caption{False Negative Classifications Before Retraining}
         \label{fig:before_retrain}
      \end{subfigure}
      \hfill
      \begin{subfigure}[b]{0.45\textwidth}
          \centering
-         \includegraphics[width=\textwidth]{./generated/retrain_confidence_vs_attack_parameters.pdf}
+         \includegraphics[width=\textwidth]{./generated/retrain_confidence_vs_attack_parameters.eps}
          \caption{False Negative Classifications after Retraining}
         \label{fig:after_retrain}
      \end{subfigure}
@@ -488,22 +488,22 @@ Financial support has been provided in part by the Knut and Alice Wallenberg Fou
      \centering
      \begin{subfigure}{0.47\textwidth}
          \centering
-         \includegraphics[width=\textwidth]{./kdd-nsl/retrain_accuracy.pdf}
+         \includegraphics[width=\textwidth]{./kdd-nsl/retrain_accuracy.eps}
      \end{subfigure}
      \hfill
      \begin{subfigure}{0.47\textwidth}
          \centering
-         \includegraphics[width=\textwidth]{./kdd-nsl/retrain_time.pdf}
+         \includegraphics[width=\textwidth]{./kdd-nsl/retrain_time.eps}
      \end{subfigure}
      \hfill
      \begin{subfigure}{0.47\textwidth}
          \centering
-         \includegraphics[width=\textwidth]{./kdd-nsl/confidence_vs_attack_parameters.pdf}
+         \includegraphics[width=\textwidth]{./kdd-nsl/confidence_vs_attack_parameters.eps}
      \end{subfigure}
      \hfill
      \begin{subfigure}{0.47\textwidth}
          \centering
-         \includegraphics[width=\textwidth]{./kdd-nsl/retrain_confidence_vs_attack_parameters.pdf}
+         \includegraphics[width=\textwidth]{./kdd-nsl/retrain_confidence_vs_attack_parameters.eps}
      \end{subfigure}
      \hfill
      \caption{Efficacy of Adversarial Retraining on KDD-NSL Dataset. The top left depicts the adversarial and benign accuracy over a number of retraining epochs. The top right depicts the per epoch training time as the number of training epochs increases. The bottom row depicts the false confidence before retraining (left) on strong adversarial examples and after (right).}
@@ -517,22 +517,22 @@ Financial support has been provided in part by the Knut and Alice Wallenberg Fou
      \centering
      \begin{subfigure}{0.47\textwidth}
          \centering
-         \includegraphics[width=\textwidth]{./truthseeker/retrain_accuracy.pdf}
+         \includegraphics[width=\textwidth]{./truthseeker/retrain_accuracy.eps}
      \end{subfigure}
      \hfill
      \begin{subfigure}{0.47\textwidth}
          \centering
-         \includegraphics[width=\textwidth]{./truthseeker/retrain_time.pdf}
+         \includegraphics[width=\textwidth]{./truthseeker/retrain_time.eps}
      \end{subfigure}
      \hfill
      \begin{subfigure}{0.47\textwidth}
          \centering
-         \includegraphics[width=\textwidth]{./truthseeker/confidence_vs_attack_parameters.pdf}
+         \includegraphics[width=\textwidth]{./truthseeker/confidence_vs_attack_parameters.eps}
      \end{subfigure}
      \hfill
      \begin{subfigure}{0.47\textwidth}
          \centering
-         \includegraphics[width=\textwidth]{./truthseeker/retrain_confidence_vs_attack_parameters.pdf}
+         \includegraphics[width=\textwidth]{./truthseeker/retrain_confidence_vs_attack_parameters.eps}
      \end{subfigure}
      \hfill
      \caption{Efficacy of Adversarial Retraining on Truthseeker Dataset. The top left depicts the adversarial and benign accuracy over a number of retraining epochs. The top right depicts the per epoch training time as the number of training epochs increases. The bottom row depicts the false confidence before retraining (left) on strong adversarial examples and after (right).}
