@@ -240,7 +240,7 @@ Generating parallel attacks allows for a larger robustness evaluation while simu
 
 \begin{figure*}[!htb]
 \centering
-\includegraphics[width=\textwidth]{./generated/PPGD.png}
+\includegraphics[width=.7\textwidth]{./ppgd.png}
 \caption{Massively Parallel Attack and Re-training Framework.  This depicts our experimental pipeline wherein we build KSVMs with various kernels, run several attacks in parallel, and then evaluate the attacked samples on the models. Optionally, we collect highly confident false examples for adversarial retraining.}
 \label{fig:attack_framework}
 
@@ -327,7 +327,7 @@ To show that these problems hold for `nice' data, we generated many numeric data
 
 \subsection{Experimental Setup}
 
-In our parallel implementation, we dedicated one core to each attack and tested a large number of hyperparameters at the same time using `joblib'\footnote{\href{https://joblib.readthedocs.io}{https://joblib.readthedocs.io}}. We used the \texttt{optuna}~\cite{optuna} framework for handling scheduling\footnote{\href{https://optuna.readthedocs.io}{https://optuna.readthedocs.io}}, hydra\footnote{\href{https://hydra.cc}{https://hydra.cc}} for hyperaparamater configuration management, and dvc\footnote{\href{https://dvc.org}{https://dvc.org}} to track results and guarantee reproducibility. We also provide source code\footnote{\href{https://github.com/simplymathematics/deckard/}{https://github.com/simplymathematics/deckard/tree/main/examples/security}{Our repository}}, designed to be extensible to other machine learning frameworks (\textit{e.g.}, Keras, Tensorflow, Pytorch, MXnet, etc.), defences, and attacks while scaling to diverse and distributed systems. In addition to running the model selection in parallel, we split the attack parameter space to run in parallel, each attack operating on the same set of test data. For our experiments, we used a 2.15Ghz AMD EPYC 7702P processor with 128 cores. We used \texttt{scikit-learn}\footnote{\href{https://scikit-learn.org/}{https://scikit-learn.org}} and \texttt{libsvm}~\cite{chang2011libsvm} to build the models and IBM's Adversarial Robustness Toolbox (\texttt{art})\footnote{\href{https://adversarial-robustness-toolbox.readthedocs.io/}{https://adversarial-robustness-toolbox.readthedocs.io}} to generate attacks.  Although we restricted our tests to a single machine to make the time-complexity analysis more straight-forward, \texttt{optuna} is capable of scaling to multiple machines in a cluster. The scheduler spends around a hundred microseconds on every task, but this is negligible compared to the training times on a reasonably sized database and comparable to a well-chosen attack (Figure~\ref{fig:samples_acc}). Although we parallelized model fitting and attack creation in the same way, our parallel attack paradigm means that each attack time was measured individually while model building times were measured as a whole and normalized by the number of tested models since increasing the model hyper-parameter search space will obviously increase the run-time requirements. In this way, we attempt to compare the average model building time for a given set of parameters with a single attack.
+In our parallel implementation, we dedicated one core to each attack and tested a large number of hyperparameters at the same time using `joblib'\footnote{\href{https://joblib.readthedocs.io}{https://joblib.readthedocs.io}}. We used the \texttt{optuna}~\cite{optuna} framework for handling scheduling\footnote{\href{https://optuna.readthedocs.io}{https://optuna.readthedocs.io}}, hydra\footnote{\href{https://hydra.cc}{https://hydra.cc}} for hyperaparamater configuration management, and dvc\footnote{\href{https://dvc.org}{https://dvc.org}} to track results and guarantee reproducibility. We also provide source code\footnote{\href{https://github.com/simplymathematics/deckard/}{Our repository}}, designed to be extensible to other machine learning frameworks (\textit{e.g.}, Keras, Tensorflow, Pytorch, MXnet, etc.), defences, and attacks while scaling to diverse and distributed systems. In addition to running the model selection in parallel, we split the attack parameter space to run in parallel, each attack operating on the same set of test data. For our experiments, we used a 2.15Ghz AMD EPYC 7702P processor with 128 cores. We used \texttt{scikit-learn}\footnote{\href{https://scikit-learn.org/}{https://scikit-learn.org}} and \texttt{libsvm}~\cite{chang2011libsvm} to build the models and IBM's Adversarial Robustness Toolbox (\texttt{art})\footnote{\href{https://adversarial-robustness-toolbox.readthedocs.io/}{https://adversarial-robustness-toolbox.readthedocs.io}} to generate attacks.  Although we restricted our tests to a single machine to make the time-complexity analysis more straight-forward, \texttt{optuna} is capable of scaling to multiple machines in a cluster. The scheduler spends around a hundred microseconds on every task, but this is negligible compared to the training times on a reasonably sized database and comparable to a well-chosen attack (Figure~\ref{fig:samples_acc}). Although we parallelized model fitting and attack creation in the same way, our parallel attack paradigm means that each attack time was measured individually while model building times were measured as a whole and normalized by the number of tested models since increasing the model hyper-parameter search space will obviously increase the run-time requirements. In this way, we attempt to compare the average model building time for a given set of parameters with a single attack.
 
 For model building purposes, we evaluated every order of magnitude in $[10^{-5}, 10^5]$ for both $c$  and $\lambda$ (Equation~\ref{eq:linear_svm}) for each of the linear, polynomial, and RBF kernels. We also tested balanced class weight and naive class weight as well as one vs.~one and one vs.~rest classifiers for each kernel. For the polynomial kernel, we evaluated degrees $D\in\{1,2,3,4,5\}$ in addition to the parameters above. Because SVMs require a large hyper-parameter search, we parallelized the search and normalized the reported time for each kernel by the cardinality of the grid search. Reported times are the average model fitting  wall time on a single core. Attack times are reported as wall time per attack. We examined the attack efficacy in the case of perfect knowledge as outlined above.
 
@@ -387,7 +387,7 @@ In the section below, we examine the performance, the robustness, the attack tim
 \begin{figure*}
     \centering
     \includegraphics[width=.75\textwidth]{./generated/train_time_vs_attack_parameters.eps}
-    \caption{Attack Parameters vs Time: This depicts how various attack hyperparametrs change the run-time.}
+    \caption{Attack Parameters vs Time: This depicts how various attack hyperparametrs change the run-time.  The bars reflect the 95\% confidence interval for all tested configurations.}
     \label{fig:attack_time}
 \end{figure*}
 
@@ -445,7 +445,7 @@ Attack time and error had a correlation of 0.18 suggesting that a clever choice 
      \end{subfigure}
      \hfill
      \label{fig:retratin}
-     \caption{This figure depicts the benign and adversarial accuracy (a), the training and attack times (b) and the false confidence across all attacks before (c) and after (d) adversarial retraining.}
+     \caption{This figure depicts the benign and adversarial accuracy (a), the training and attack times (b) and the false confidence across all attacks before (c) and after (d) adversarial retraining.  The bars reflect the 95\% confidence interval for all tested configurations.}
 \end{figure*}
 
 
@@ -506,7 +506,7 @@ Financial support has been provided in part by the Knut and Alice Wallenberg Fou
          \includegraphics[width=\textwidth]{./kdd-nsl/retrain_confidence_vs_attack_parameters.eps}
      \end{subfigure}
      \hfill
-     \caption{Efficacy of Adversarial Retraining on KDD-NSL Dataset. The top left depicts the adversarial and benign accuracy over a number of retraining epochs. The top right depicts the per epoch training time as the number of training epochs increases. The bottom row depicts the false confidence before retraining (left) on strong adversarial examples and after (right).}
+     \caption{Efficacy of Adversarial Retraining on KDD-NSL Dataset. The top left depicts the adversarial and benign accuracy over a number of retraining epochs. The top right depicts the per epoch training time as the number of training epochs increases. The bottom row depicts the false confidence before retraining (left) on strong adversarial examples and after (right).  The bars reflect the 95\% confidence interval for all tested configurations.}
      \label{fig:kdd-nsl}
 \end{figure*}
 \pagebreak
@@ -535,7 +535,7 @@ Financial support has been provided in part by the Knut and Alice Wallenberg Fou
          \includegraphics[width=\textwidth]{./truthseeker/retrain_confidence_vs_attack_parameters.eps}
      \end{subfigure}
      \hfill
-     \caption{Efficacy of Adversarial Retraining on Truthseeker Dataset. The top left depicts the adversarial and benign accuracy over a number of retraining epochs. The top right depicts the per epoch training time as the number of training epochs increases. The bottom row depicts the false confidence before retraining (left) on strong adversarial examples and after (right).}
+     \caption{Efficacy of Adversarial Retraining on Truthseeker Dataset. The top left depicts the adversarial and benign accuracy over a number of retraining epochs. The top right depicts the per epoch training time as the number of training epochs increases. The bottom row depicts the false confidence before retraining (left) on strong adversarial examples and after (right).  The bars reflect the 95\% confidence interval for all tested configurations.}
      \label{fig:truthseeker}
 \end{figure*}
 \end{appendices}
