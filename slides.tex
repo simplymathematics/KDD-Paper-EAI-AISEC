@@ -62,7 +62,7 @@ The \textbf{PGD Attack} is defined by the iteration scheme:
 $$
     x^{(k+1)} = P\big(x^{(k)} + \eta^{(k)} \nabla f(x^{(k)})\big),
 $$
-where $x^{(k)}$ is the adversarial example at iteration $k = 1,\ldots,N$, the $N$ is the number of iterations, $P(x)$ is a projection of $x$ onto a convex set (\texit{e.g.}, a norm ball in the feature space) with radius $d_{max}$ (chosen by the experimenter), $\eta^{(k)}$ is the step size in each iteration, and $f(x^{(k)})$ is the original model function at iteration $k$. An attack thus takes ascent steps in the direction of the loss gradient, attempting to maximize the loss of the attacked model, with the projection step as a means to adhere to any other constraints.
+where $x^{(k)}$ is the adversarial example at iteration $k = 1,\ldots,N$, the $N$ is the number of iterations, $P(x)$ is a projection of $x$ onto a convex set (\textit{e.g.}, a norm ball in the feature space) with radius $d_{max}$ (chosen by the experimenter), $\eta^{(k)}$ is the step size in each iteration, and $f(x^{(k)})$ is the original model function at iteration $k$. An attack thus takes ascent steps in the direction of the loss gradient, attempting to maximize the loss of the attacked model, with the projection step as a means to adhere to any other constraints.
 \end{frame}
 
 \begin{frame}{Adversarial Retraining}
