@@ -80,7 +80,7 @@ which will add significant training time to the model (already measured in hours
 \begin{frame}{Pipeline}
   \begin{figure*}
 \centering
-\includegraphics[width=\textwidth]{./generated/PPGD.png}
+\includegraphics[width=\textwidth]{ppgd.png}
 
 \label{fig:attack_framework}
 \caption{Massively Parallel Attack and Re-training Framework.  This depicts our experimental pipeline wherein we build KSVMs with various kernels, run several attacks in parallel, and then evaluate the attacked samples on the models. Optionally, we collect highly confident false examples for adversarial retraining.}
@@ -98,13 +98,13 @@ We dedicated one core to each attack and tested a large number of hyperparameter
     \centering
     \begin{subfigure}{.45\textwidth}
       \centering
-      \includegraphics[width=\textwidth]{./generated/accuracy_vs_samples.pdf}
+      \includegraphics[width=\textwidth]{./generated/accuracy_vs_samples.eps}
       \caption{Model Performance vs Database Size}
     \end{subfigure}
     \hfill
     \begin{subfigure}{.45\textwidth}
       \centering
-      \includegraphics[width=\textwidth]{./generated/accuracy_vs_features.pdf}
+      \includegraphics[width=\textwidth]{./generated/accuracy_vs_features.eps}
       \caption{Model Performance vs Feature Space}
     \end{subfigure}
   \end{figure}
@@ -115,13 +115,13 @@ We dedicated one core to each attack and tested a large number of hyperparameter
     \centering
     \begin{subfigure}{.45\textwidth}
       \centering
-      \includegraphics[width=\textwidth]{./generated/train_time_vs_samples.pdf}
+      \includegraphics[width=\textwidth]{./generated/train_time_vs_samples.eps}
       \caption{Training and Attack Times vs Database Size}
     \end{subfigure}
     \hfill
     \begin{subfigure}{.45\textwidth}
       \centering
-      \includegraphics[width=\textwidth]{./generated/train_time_vs_features.pdf}
+      \includegraphics[width=\textwidth]{./generated/train_time_vs_features.eps}
       \caption{Training and Attack Times vs Feature Space}
     \end{subfigure}
   \end{figure}
@@ -131,7 +131,7 @@ We dedicated one core to each attack and tested a large number of hyperparameter
 \begin{frame}{Attack Parameters vs Accuracy}
   \begin{figure}
     \centering
-    \includegraphics[width=.75\textwidth]{./generated/accuracy_vs_attack_parameters.pdf}
+    \includegraphics[width=.75\textwidth]{./generated/accuracy_vs_attack_parameters.eps}
     \caption{Attack Parameters vs Accuracy}
   \end{figure}
   \label{fig:attack_accuracy}
@@ -140,7 +140,7 @@ We dedicated one core to each attack and tested a large number of hyperparameter
 \begin{frame}{Attack Parameters vs Time}
   \begin{figure}
     \centering
-    \includegraphics[width=.75\textwidth]{./generated/train_time_vs_attack_parameters.pdf}
+    \includegraphics[width=.75\textwidth]{./generated/train_time_vs_attack_parameters.eps}
     \caption{Attack Parameters vs Time}
   \end{figure}
 \end{frame}
@@ -151,13 +151,13 @@ We dedicated one core to each attack and tested a large number of hyperparameter
     \centering
     \begin{subfigure}[b]{0.45\textwidth}
       \centering
-      \includegraphics[width=\textwidth]{./generated/retrain_accuracy.pdf}
+      \includegraphics[width=\textwidth]{./generated/retrain_accuracy.eps}
       \caption{Adversarial Retraining: Accuracy over Retraining Cycles}
     \end{subfigure}
     \centering
     \begin{subfigure}[b]{0.45\textwidth}
       \centering
-      \includegraphics[width=\textwidth]{./generated/retrain_time.pdf}
+      \includegraphics[width=\textwidth]{./generated/retrain_time.eps}
       \caption{Adversarial Retraining: Training and Attack Times}
     \end{subfigure}
   \end{figure}
@@ -168,13 +168,13 @@ We dedicated one core to each attack and tested a large number of hyperparameter
     \centering
     \begin{subfigure}[b]{0.45\textwidth}
       \centering
-      \includegraphics[width=\textwidth]{./generated/confidence_vs_attack_parameters.pdf}
+      \includegraphics[width=\textwidth]{./generated/confidence_vs_attack_parameters.eps}
       \caption{False Negative Classifications Before Retraining}
     \end{subfigure}
     \centering
     \begin{subfigure}[b]{0.45\textwidth}
       \centering
-      \includegraphics[width=\textwidth]{./generated/retrain_confidence_vs_attack_parameters.pdf}
+      \includegraphics[width=\textwidth]{./generated/retrain_confidence_vs_attack_parameters.eps}
       \caption{False Negative Classifications After Retraining}
     \end{subfigure}
   \end{figure}
@@ -217,25 +217,25 @@ We dedicated one core to each attack and tested a large number of hyperparameter
      \centering
      \begin{subfigure}{0.4\textwidth}
          \centering
-         \includegraphics[width=\textwidth]{./kdd-nsl/retrain_accuracy.pdf}
+         \includegraphics[width=\textwidth]{./kdd-nsl/retrain_accuracy.eps}
          \caption{Accuracy After Retraining}
      \end{subfigure}
      \hfill
      \begin{subfigure}{0.4\textwidth}
          \centering
-         \includegraphics[width=\textwidth]{./kdd-nsl/retrain_time.pdf}
+         \includegraphics[width=\textwidth]{./kdd-nsl/retrain_time.eps}
          \caption{Retraining Time}
      \end{subfigure}
      \hfill
      \begin{subfigure}{0.4\textwidth}
          \centering
-         \includegraphics[width=\textwidth]{./kdd-nsl/confidence_vs_attack_parameters.pdf}
+         \includegraphics[width=\textwidth]{./kdd-nsl/confidence_vs_attack_parameters.eps}
          \caption{Before Retraining}
      \end{subfigure}
      \hfill
      \begin{subfigure}{0.4\textwidth}
          \centering
-         \includegraphics[width=\textwidth]{./kdd-nsl/retrain_confidence_vs_attack_parameters.pdf}
+         \includegraphics[width=\textwidth]{./kdd-nsl/retrain_confidence_vs_attack_parameters.eps}
          \caption{After Retraining}
      \end{subfigure}
      
@@ -248,25 +248,25 @@ We dedicated one core to each attack and tested a large number of hyperparameter
      \centering
      \begin{subfigure}{0.4\textwidth}
          \centering
-         \includegraphics[width=\textwidth]{./truthseeker/retrain_accuracy.pdf}
+         \includegraphics[width=\textwidth]{./truthseeker/retrain_accuracy.eps}
          \caption{Accuracy After Retraining}
      \end{subfigure}
      \hfill
      \begin{subfigure}{0.4\textwidth}
          \centering
-         \includegraphics[width=\textwidth]{./truthseeker/retrain_time.pdf}
+         \includegraphics[width=\textwidth]{./truthseeker/retrain_time.eps}
          \caption{Retraining Time}
      \end{subfigure}
      \hfill
      \begin{subfigure}{0.4\textwidth}
          \centering
-         \includegraphics[width=\textwidth]{./truthseeker/confidence_vs_attack_parameters.pdf}
+         \includegraphics[width=\textwidth]{./truthseeker/confidence_vs_attack_parameters.eps}
          \caption{Before Retraining}
      \end{subfigure}
      \hfill
      \begin{subfigure}{0.4\textwidth}
          \centering
-         \includegraphics[width=\textwidth]{./truthseeker/retrain_confidence_vs_attack_parameters.pdf}
+         \includegraphics[width=\textwidth]{./truthseeker/retrain_confidence_vs_attack_parameters.eps}
          \caption{After Retraining}
      \end{subfigure}
      \hfill

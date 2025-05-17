@@ -164,7 +164,7 @@
 \renewcommand\Huge{\@setfontsize\Huge\@xxvpt{30}}
 
 \definecolor{ICSTgray}{gray}{0.5}
-\definecolor{ICSTblue}{cmyk}{0.89,0.44,0.22,0.17}
+\definecolor{ICSTblue}{gray}{0.5}
 
 \def\articletype#1{%
 \gdef\@articletype{{#1}}}

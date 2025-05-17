@@ -9,7 +9,7 @@
 
 
 \usepackage{moreverb}
-\usepackage[breaklinks,colorlinks,bookmarksopen,bookmarksnumbered,linkcolor=ICSTblue,citecolor=blue,urlcolor=ICSTblue]{hyperref}
+\usepackage[breaklinks,bookmarksopen,bookmarksnumbered]{hyperref}
 \usepackage{breakurl}
 \usepackage{doi}
 \usepackage{afterpage}
@@ -26,12 +26,13 @@ T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 
   \def\copyrightholder{C. Meyers\textit{ et al.}, licensed to EAI}
   \copyrightnote{This is an open access article distributed under the terms of the \href{https://creativecommons.org/licenses/by-nc-sa/4.0/}{CC BY-NC-SA 4.0}, which permits copying, redistributing, remixing, transformation, and building upon the material in any medium so long as the original work is properly cited.}
-  \def\articledoi{10.4108/XX.X.X.XX}
+  \def\articledoi{10.4108/eetiot.6652}
 \received{9-2023}
   \accepted{10-2023}
   \published{7-2024}
 
 \begin{document}
+\pagestyle{empty}
 
 
 % If the paper title is too long for the running head, you can set
@@ -419,7 +420,7 @@ Attack time and error had a correlation of 0.18 suggesting that a clever choice 
      \begin{subfigure}[b]{0.45\textwidth}
          \centering
          \includegraphics[width=\textwidth]{./generated/retrain_accuracy.eps}
-         \caption{Adversarial Retraining: Accuracy over several retraining cycles. The blue indicates the performance on unpertured data and the red indicates performance on the adversarial data.}
+         \caption{Adversarial Retraining: Accuracy over several retraining cycles. The blue indicates the performance on unperturbed data and the red indicates performance on the adversarial data.}
         \label{fig:retrain_acc}
      \end{subfigure}
      \hfill
