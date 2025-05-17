@@ -128,15 +128,15 @@ We present a novel parallel attack generation framework allows for massively gen
 \section{Related Work}
 
 Prior research has shown the inverse relationship between model robustness and model accuracy empirically~\cite{li2016general,tsipras2018robustness}.
-Tsipras \texit{et al.}~\cite{tsipras2018robustness} highlighted this trade-off while examining neural nets on several image data-sets.
+Tsipras \textit{et al.}~\cite{tsipras2018robustness} highlighted this trade-off while examining neural nets on several image data-sets.
 Other experiments have shown a strong inverse relationship between model robustness and model accuracy for a large number of samples and accurate models~\cite{raghunathan2020understanding} more generally.
-Raghunathan \texit{et al.}~\cite{raghunathan2020understanding} offer a theoretical explanation, suggesting that this trade-off is an artifact of imperfect sampling.
+Raghunathan \textit{et al.}~\cite{raghunathan2020understanding} offer a theoretical explanation, suggesting that this trade-off is an artifact of imperfect sampling.
 Even after explicitly minimizing the gap between benign and adversarial accuracy, the adversarial model had a nearly 6 times increase in adversarial error relative to the benign case.
 In addition, it was recently proven that \textit{all} classifiers are vulnerable to attacks from an adversary~\cite{dohmatob2019generalized}, which raises issues for safety-critical and real-time systems.
 Since all classifiers are doomed to fail against such attacks, then, at the very least, it is critical to quantify classification robustness.
 
 Current research suggests adopting only strong attacks in these evaluations~\cite{carlini2019evaluating}, but the strength of an attack is unknown prior to evaluation, and is context-dependent.
-Furthermore, Croce \texit{et al.}~\cite{croce2020reliable} showed fifty cases where modern, published research failed to have reproducible robustness.
+Furthermore, Croce \textit{et al.}~\cite{croce2020reliable} showed fifty cases where modern, published research failed to have reproducible robustness.
 Other research has shown that randomized smoothing, obfuscated gradients, and even non-differentiable models fail to produce strong defenses against the proposed attacker~\cite{carlini2017towards,athalye2018obfuscated,uesato2018adversarial}.
 This is intuitive---creating a boundary condition sensitive to a particular attack does not remove the existence of a new gradient to be exploited.
 
@@ -148,7 +148,7 @@ In this section, we briefly discuss our choice in models, attacks, and defences.
 Support vector machines~\cite{cortes1995support} can be used for both classification and regression.
 The kernelized versions include arbitrary data transformations (through kernels) that casts a data-set into a higher-dimensional space, where the classes are linearly separable.
 The resulting models are determined by solving convex optimization problems, as detailed below.
-Trafalis \texit{et al.}~\cite{trafalis2007robust} show that under benign perturbations, these models are robust and numerically stable, but little is known about their robustness against an adversarial attacker.
+Trafalis \textit{et al.}~\cite{trafalis2007robust} show that under benign perturbations, these models are robust and numerically stable, but little is known about their robustness against an adversarial attacker.
 
 A support vector machine is trained by solving the Lagrange dual problem~\cite{cortes1995support},
 \begin{equation}
@@ -202,7 +202,7 @@ The radial basis function kernel is given by
 $$
     K(x_i, x_j) = e^{-\gamma d(x_i, x_j)},
 $$
-where $\gamma = (2 \sigma^2)^{-1}$, and $d$ is any suitable distance metric.
+where $\gamma = {(2 \sigma^2)}^{-1}$, and $d$ is any suitable distance metric.
 The gradient is given by
 $$
     \nabla K(x_i, x_j) = - \gamma e^{-\gamma d( x_i, x_j )} \nabla d(x_i, x_j),
@@ -213,14 +213,14 @@ with a distance metric that scales with $p$ (\textit{e.g.}, an inner product), a
 
 The polynomial kernel is given by
 $$
-    K(x_i, x_j) = \big(\langle x_i, x_j \rangle + r \big)^D,
+    K(x_i, x_j) = {\big(\langle x_i, x_j \rangle + r \big)}^D,
 $$
 where $r$ is a tune-able parameter and $D$ describes the degree of the polynomial (also tune-able).
 Its gradient is given by
 $$
-    \nabla K(x_i, x_j) = \Delta D(\langle x_i, x_j \rangle + r)^{D-1},
+    \nabla K(x_i, x_j) = \Delta D{(\langle x_i, x_j \rangle + r)}^{D-1},
 $$
-where $\Delta$ is a diagonal matrix with the inputs, $x_{i,1},\ldots,x_{i,p},$ $x_{j,1},\ldots,x_{j,p}$, on the diagonal.
+where $\Delta$ is a diagonal matrix with the inputs, $x_{i,1},\ldots,x_{i,p}$, $x_{j,1},\ldots,x_{j,p}$, on the diagonal.
 Computing the gradient means an inner product that scales with $p$ (the dimension of $x_i$), $D$ multiplications of the inner product value, and $n^2$ such computations, giving a total complexity of $O(pDn^2)$.
 
 The lower bound of complexity is given by the number of dot products in the Lagrangian in Equation~\ref{eq:linear_svm}, which has an overall complexity of $O(pn^2)$, showing that the attack time will be dominated by the number of attacked samples rather than kernel choice.
@@ -231,7 +231,7 @@ The lower bound of complexity is given by the number of dot products in the Lagr
 
 We demonstrate the experiments using kernelized SVMs, but note that the metrics and analyses generalize to more elaborate models.
 Firstly, we focus on the training-time complexity of these models, which is already known to be significantly smaller than popular neural network architectures~\cite{bienstock2018principled}.
-Secondly, our goal is not to chase state-of-the-art results, but to unequivocally demonstrate that retraining methods (dictated by NIST ~\cite{falco2006using}) increase the accuracy against a given set of adversarial attacks at the cost of confidence in the unperturbed case will be unlikely to meet the risk-reduction standards outlined in ISO~26262~\cite{iso26262}.
+Secondly, our goal is not to chase state-of-the-art results, but to unequivocally demonstrate that retraining methods (dictated by NIST~\cite{falco2006using}) increase the accuracy against a given set of adversarial attacks at the cost of confidence in the unperturbed case will be unlikely to meet the risk-reduction standards outlined in ISO~26262~\cite{iso26262}.
 By using SVMs instead of more costly models, we were able to evaluate a larger number of hyperparameters on a fixed computational budget, a necessity for large and complex hyperparameters spaces.
 Furthermore, since the generated data was defined to be linearly separable in a $p$-dimensional space, any and all of these models \textit{should} work quite well.
 
@@ -261,7 +261,7 @@ $$
 $$
 before actually creating the retrained model, which has $2n$ samples, giving us the complexity
 $$
-    O(n^2p) + O\big((2n)^2\big) = O(n^2p)
+    O(n^2p) + O\big({(2n)}^2\big) = O(n^2p)
 $$
 which will add significant training time to the model (already measured in hours or days) with the unintended side effect of reducing benign accuracy~\cite{stutz2019confidence}.
 
@@ -333,10 +333,10 @@ However, many models are proprietary and can only be accessed through an API tha
 
 \paragraph{Limited Knowledge: }
 Even though our attack scenario only includes perfect knowledge, prior research~\cite{fredrikson2015model,biggio2013evasion,chakraborty2018adversarial,wang2019security,ateniese2015hacking} has shown that a surrogate model and data-set can be used to approximate $f(x)$ by $\hat{f}(x)$ and build a model using the class labels provided by the attacked model at test-time.
-Tram\`er \texit{et al.}~\cite{tramer2016stealing} examined popular machine learning as a service platforms that return confidence values as well as class labels, showing that an attacker can build a proxy model by querying $ p + 1$ random $p-$dimensional inputs for unknown $p+1$ parameters.
+Tram\`er \textit{et al.}~\cite{tramer2016stealing} examined popular machine learning as a service platforms that return confidence values as well as class labels, showing that an attacker can build a proxy model by querying $ p + 1$ random $p-$dimensional inputs for unknown $p+1$ parameters.
 Further researchers~\cite{fredrikson2015model} were able to reverse engineer the training data-set through black-box attacks against a model that returns confidence levels, with the caveat that the inferred data might be a meta-prototypical example that does not appear in the original data-set.
 Fortunately for our attacker, such examples are still useful for determining the underlying data distributions even if they manage to preserve some of the privacy of the original data-set.
-Shokri \texit{et al.}~\cite{shokri2017membership} presented a membership inference attack that determines whether a given data point belongs to the same distribution as the original training data using a set of proxy models.
+Shokri \textit{et al.}~\cite{shokri2017membership} presented a membership inference attack that determines whether a given data point belongs to the same distribution as the original training data using a set of proxy models.
 Although we tested only the perfect knowledge scenario, there are myriad ways for an attacker to get access to otherwise private data using nothing but standard machine learning APIs.
 
 
@@ -352,7 +352,7 @@ The algorithm is outlined in Algorithm~\ref{algorithm}.
     \caption{Parallel PGD}
     \KwIn{A set of step sizes $\{\eta\}$; $\{d_{max} > 0\}$, a set of maximum perturbation constants; a set of batch sizes, $\{m\}$; a trained model $f(x)$; $X=\{(\bar{x}^{(0)},\bar{y})\}$ a set of unperturbed samples and their corresponding labels; $\{I\}$, a set of maximum iterations; and a projection operator
     $$
-        P_{d_{max}}(X) = \bigg\{\textrm{argmin}_{x^*,\,d(x^*, x)\leq d_{max}} \|x^* - x\| \bigg\}_{x \in X}
+        P_{d_{max}}(X) = {\bigg\{\textrm{argmin}_{x^*,\,d(x^*, x)\leq d_{max}} \|x^* - x\| \bigg\}}_{x \in X}
     $$
     }
     \KwOut{$x^*$, a sample with perturbation no greater than $d_{max}$}
@@ -361,7 +361,7 @@ The algorithm is outlined in Algorithm~\ref{algorithm}.
     $$
         G = \mathrm{AllCombinations} \Big( \{ \eta \}, \{ m \}, \{ I \}, \{ d_{max} \} \Big)
     $$\\
-    \ForEach { $(\eta, m, I, d_{max})=g \in G$ ~~~\textbf{\emph{in parallel}}~}{
+    \ForEach { $(\eta, m, I, d_{max})=g \in G$~~~\textbf{\emph{in parallel}}~}{
             $i \leftarrow 0$ \\
             \While{i $\leq I$}{
                 \ForEach{$X_{m}^{(i)}\subseteq X$}{
@@ -398,7 +398,7 @@ Our experimental methods are outlined in detail below.
 \subsection{Data-set}
 To show that these problems hold for `nice' data, we generated many numeric datasets.
 We sampled $n$ Gaussian distributed points near opposing corners of a hybercube in $p$ dimensions, separated by an $\ell_2$ distance of ten.
-We generated twenty unique datasets with the combinations of $p \in [10, 10^{2}, 10^{3}, 10^{4}]$ and $n \in [10^2, 10^3, 10^4,$ $10^5, 10^6]$.
+We generated twenty unique datasets with the combinations of $p \in [10, 10^{2}, 10^{3}, 10^{4}]$ and $n \in [10^2, 10^3, 10^4, 10^5, 10^6]$.
 We also ran the framework on the the intrusion-detection KDD-NSL dataset~\cite{kdd-nsl}, selected in such a way as to avoid duplicate rows, a common critique of the original~\cite{Dua:2019} as well as the Truthseeker dataset~\cite{truthseeker} that divides malicious and benign twitter users based on a variety of usage data (see: Appendices~\ref{appendix-1}~and~\ref{appendix-2}).
 For adversarial retraining, the positive label was used for new data, classifying it as `malicious' and of the same class as a variety of network-based attacks included in the original data set.
 For our evaluations, we used 100,000 training samples, and one hundred consistent samples in the test set.
@@ -584,18 +584,18 @@ The bars reflect the 95\% confidence interval for all tested configurations.}
 
 
 \subsubsection{Adversarial Retraining}
-Adversarial retraining is a defense proposed by  Li \texit{et al.}~\cite{li2016general}, that appends adversarial examples to the training set, labels them `malicious' and trains a classifier on a new set.
+Adversarial retraining is a defense proposed by  Li \textit{et al.}~\cite{li2016general}, that appends adversarial examples to the training set, labels them `malicious' and trains a classifier on a new set.
 This can be conducted iteratively, in `epochs'.
-Figures ~\ref{fig:retrain_acc}, and ~\ref{fig:retrain_time} depict this method conducted over 20 epochs on the RBF, polynomial, and linear kernels respectively.
+Figures~\ref{fig:retrain_acc}, and~\ref{fig:retrain_time} depict this method conducted over 20 epochs on the RBF, polynomial, and linear kernels respectively.
 We can see that this process increases training time linearly, even when we exclude the attack generation time.
 The RBF and polynomial kernels do become more robust with successive epochs; however, this comes at the cost of benign accuracy.
 The linear kernel retains its benign accuracy with marginally improved robustness, but would still not reliably prevent false classifications.
 Unfortunately, as adversarial attacks blur the boundary between the `benign' and `malicious' sets, the number of support vectors tends to increase, leading to growth in time complexity beyond the time required by the larger number of samples while doing little to make reliable models.
 A related method, confidence calibrated retraining, attempts to solve this problem~\cite{croce2020reliable} but requires an additional iterative calculation that is guaranteed to increase run-time anyway.
 However, using the naive version, we found that the new classifier is susceptible to old attacks (compare the results Figure~\ref{fig:before_retrain} and Figure~\ref{fig:after_retrain}) despite reducing the efficacy of a given attack over many retraining cycles (see Figure~\ref{fig:retrain_acc}).
-In addition, we found that the models have nearly identical false confidence Figure~\ref{fig:after_retrain}) on the attacks generated on the un-defended models (see Figure~\ref{fig:before_retrain}), suggesting that the transferability of attacks has been under-estimated.
+In addition, we found that the models have nearly identical false confidence (Figure~\ref{fig:after_retrain}) on the attacks generated on the un-defended models (see Figure~\ref{fig:before_retrain}), suggesting that the transferability of attacks has been under-estimated.
 This figure (Figure~\ref{fig:after_retrain}) depicts all attacks that induce false classifications below the 99\% true, benign detection threshold dictated by AT, even when this threshold is minimized.
-While the defended model (Figure~\ref{fig:after_retrain}) has a better response against the strongest attack  than the undefended models (Figure ~\ref{fig:attack_accuracy}), this defense leads to a generalized failure on attacks (Figure~\ref{fig:after_retrain}) relative to the benign model (Figure~\ref{fig:attack_accuracy}).
+While the defended model (Figure~\ref{fig:after_retrain}) has a better response against the strongest attack  than the undefended models (Figure~\ref{fig:attack_accuracy}), this defense leads to a generalized failure on attacks (Figure~\ref{fig:after_retrain}) relative to the benign model (Figure~\ref{fig:attack_accuracy}).
 Furthermore, strong attacks are possible across the entire attack space and work on nearly half of all examples.
 Even after the increased training time of AT, a strong attack  (Figure~\ref{fig:after_retrain}) was found in milliseconds.
 
@@ -637,7 +637,7 @@ While this degree of perturbation may create obvious adversaries to humans, our 
 Finally, we provide an easily extensible code-base for managing massive, parallel, and distributed experiments on various attacks and defences.
 Thus, we find adversarial retraining to be unsuitable for real-time, safety-critical, or security-sensitive applications of KSVMs.
 Simultaneously, through a run-time analysis of low-cost model (KSVMs), we raise serious concerns about the hope of any polynomial-time model builder to defend against an adversary that consistently succeeds in more-or-less constant time, despite many rounds of adversarial retraining.
-Furthermore, we show this to be true on generated data, system process data~\cite{kdd-nsl}, and social media data~\cite{truthseeker} (see: Section~\ref{results} and Appendices~\ref{appendix-1}~\&~\ref{appendix-2} for each dataset, respectively) .
+Furthermore, we show this to be true on generated data, system process data~\cite{kdd-nsl}, and social media data~\cite{truthseeker} (see: Section~\ref{results} and Appendices~\ref{appendix-1}~\&~\ref{appendix-2} for each dataset, respectively).
 
 \section{Acknowledgements}
 Financial support has been provided in part by the Knut and Alice Wallenberg Foundation grant number 2019.0352 and by the eSSENCE Programme under the Swedish Government's Research Initiative.

@@ -2,229 +2,121 @@ schema: '2.0'
 stages:
   pre-commmit:
     cmd: pre-commit run --all-files  && chktex -q -V main.tex -n 24 -n 8 -n 1 -n 45
-      -n 17 -n 9 && touch pre_commit.flag
+      -n 17 -n 9 -n 35 && touch pre_commit.flag
     deps:
     - path: .pre-commit-config.yaml
-      md5: 23309ad2fcb1dfab26f99f4be4f50951
-      size: 1627
-    - path: Fig1.pdf
-      md5: 460bf2f161bc10b5be7aafd3d0078c74
-      size: 40419
-    - path: Fig10.pdf
-      md5: 88259a290c6e36daceee258d4a6d381f
-      size: 69234
-    - path: Fig11.pdf
-      md5: 1448eaced17fe34bc33fbb7a05f90c00
-      size: 54988
-    - path: Fig12.pdf
-      md5: 3abc06484e9ac288c05c42079b81790f
-      size: 21621
-    - path: Fig13.pdf
-      md5: 8c4d221f147f23a51e90390da97b84d7
-      size: 22527
-    - path: Fig14.pdf
-      md5: 502849d0e96fe272e685b9c83c831c07
-      size: 21071
-    - path: Fig15.pdf
-      md5: f8d5b429e1b1c777aa87577868589816
-      size: 54438
-    - path: Fig16.pdf
-      md5: 698952010710af6d8e739c9edebe36bb
-      size: 55234
-    - path: Fig17.pdf
-      md5: 97f9f05b878565bd71c5db3ea00d6665
-      size: 21608
-    - path: Fig18.pdf
-      md5: c921673415ef1cbfd7488c9084ec7f37
-      size: 54400
-    - path: Fig19.pdf
-      md5: 41ebaee66898d637c918d1c31928bc3b
-      size: 22968
-    - path: Fig2.pdf
-      md5: 334da7c859d4a56388dd4ebed4cc1ee2
-      size: 430229
-    - path: Fig20.pdf
-      md5: e9171f79b5271c7cad63c807f2df9afb
-      size: 21114
-    - path: Fig21.pdf
-      md5: a9b61bb951c4900ff683d354b079c672
-      size: 52133
-    - path: Fig22.pdf
-      md5: 1a89b4e1a0f6a9d57d2fbb11a7bdd5b8
-      size: 54920
-    - path: Fig3.pdf
-      md5: 8ffe4ddaa36af1add0b94b0c7385a3d3
-      size: 57432
-    - path: Fig4.pdf
-      md5: 5c1c95330b9121be52f4fa9f29324e7f
-      size: 60999
-    - path: Fig5.pdf
-      md5: efb6cd23bd69529b49b5a211d99badc4
-      size: 51814
-    - path: Fig6.pdf
-      md5: 534aabd5f3dde6a7bd4fbb20cacb3a54
-      size: 68569
-    - path: Fig7.pdf
-      md5: 1b17564d90be8d133d5eb0a88a2ff1ff
-      size: 50652
-    - path: Fig8.pdf
-      md5: f6e377ed8267f6c9479a0bc1b5569f7c
-      size: 61747
-    - path: Fig9.pdf
-      md5: bbc0629d8b6a34b81e99bcccb9fe331d
-      size: 59771
+      md5: bd62a912262eec2d6c3040b40ff84ecd
+      size: 1532
+    - path: generated
+      md5: 8d1d430fb35b6d8354084f683db7c304.dir
+      size: 2147935
+      nfiles: 36
+    - path: kdd-nsl
+      md5: 5dc04196810d301a637523e706a6c878.dir
+      size: 1885313
+      nfiles: 13
     - path: main.tex
-      md5: 917c055d7968bdb312478df47eb73b30
-      size: 94479
+      md5: a3be8b308f343f1e256ea26fb4c9dfb8
+      size: 56759
+    - path: truthseeker
+      md5: fed45342c832fb2439a0ef7d372a522c.dir
+      size: 1102070
+      nfiles: 13
     outs:
     - path: pre_commit.flag
       md5: d41d8cd98f00b204e9800998ecf8427e
       size: 0
       isexec: true
   first_run:
-    cmd: pdflatex  main.tex -interaction=nonstopmode -halt-on-error
+    cmd: pdflatex  main.tex -interaction=nonstopmode
     deps:
-    - path: Fig1.pdf
-      md5: 460bf2f161bc10b5be7aafd3d0078c74
-      size: 40419
-    - path: Fig10.pdf
-      md5: 88259a290c6e36daceee258d4a6d381f
-      size: 69234
-    - path: Fig11.pdf
-      md5: 1448eaced17fe34bc33fbb7a05f90c00
-      size: 54988
-    - path: Fig12.pdf
-      md5: 3abc06484e9ac288c05c42079b81790f
-      size: 21621
-    - path: Fig13.pdf
-      md5: 8c4d221f147f23a51e90390da97b84d7
-      size: 22527
-    - path: Fig14.pdf
-      md5: 502849d0e96fe272e685b9c83c831c07
-      size: 21071
-    - path: Fig15.pdf
-      md5: f8d5b429e1b1c777aa87577868589816
-      size: 54438
-    - path: Fig16.pdf
-      md5: 698952010710af6d8e739c9edebe36bb
-      size: 55234
-    - path: Fig17.pdf
-      md5: 97f9f05b878565bd71c5db3ea00d6665
-      size: 21608
-    - path: Fig18.pdf
-      md5: c921673415ef1cbfd7488c9084ec7f37
-      size: 54400
-    - path: Fig19.pdf
-      md5: 41ebaee66898d637c918d1c31928bc3b
-      size: 22968
-    - path: Fig2.pdf
-      md5: 334da7c859d4a56388dd4ebed4cc1ee2
-      size: 430229
-    - path: Fig20.pdf
-      md5: e9171f79b5271c7cad63c807f2df9afb
-      size: 21114
-    - path: Fig21.pdf
-      md5: a9b61bb951c4900ff683d354b079c672
-      size: 52133
-    - path: Fig22.pdf
-      md5: 1a89b4e1a0f6a9d57d2fbb11a7bdd5b8
-      size: 54920
-    - path: Fig3.pdf
-      md5: 8ffe4ddaa36af1add0b94b0c7385a3d3
-      size: 57432
-    - path: Fig4.pdf
-      md5: 5c1c95330b9121be52f4fa9f29324e7f
-      size: 60999
-    - path: Fig5.pdf
-      md5: efb6cd23bd69529b49b5a211d99badc4
-      size: 51814
-    - path: Fig6.pdf
-      md5: 534aabd5f3dde6a7bd4fbb20cacb3a54
-      size: 68569
-    - path: Fig7.pdf
-      md5: 1b17564d90be8d133d5eb0a88a2ff1ff
-      size: 50652
-    - path: Fig8.pdf
-      md5: f6e377ed8267f6c9479a0bc1b5569f7c
-      size: 61747
-    - path: Fig9.pdf
-      md5: bbc0629d8b6a34b81e99bcccb9fe331d
-      size: 59771
+    - path: generated
+      md5: 8d1d430fb35b6d8354084f683db7c304.dir
+      size: 2147935
+      nfiles: 36
+    - path: kdd-nsl
+      md5: 5dc04196810d301a637523e706a6c878.dir
+      size: 1885313
+      nfiles: 13
     - path: main.tex
-      md5: 917c055d7968bdb312478df47eb73b30
-      size: 94479
+      md5: a3be8b308f343f1e256ea26fb4c9dfb8
+      size: 56759
     - path: pre_commit.flag
       md5: d41d8cd98f00b204e9800998ecf8427e
       size: 0
+    - path: truthseeker
+      md5: fed45342c832fb2439a0ef7d372a522c.dir
+      size: 1102070
+      nfiles: 13
     outs:
     - path: main.aux
-      md5: d3286574162b0b3992ef9c7f4ee83872
-      size: 36136
+      md5: a20f0521492a4212a0409d16966fe5b7
+      size: 19121
       isexec: true
     - path: main.log
-      md5: 490f67277cd4b01f546e0c4702c6ee7e
-      size: 55126
+      md5: 134321174d3b58d65e41ba4735ef036c
+      size: 98686
       isexec: true
     - path: main.out
-      md5: ffb1bdf7095dba0eedccc9d1a2aee487
-      size: 7145
+      md5: 1dbab7c09bf19d8b92096de9bbbcb509
+      size: 5130
       isexec: true
   big_run:
     cmd: pdflatex main.tex && bibtex main && pdflatex  main.tex && pdflatex  main.tex
     deps:
     - path: bibliography.bib
-      md5: 3a6fe752fb1e88e926ce886dad6d4568
-      size: 145952
+      md5: 2d7cdb00cb738f1d51469b2abac90bc2
+      size: 21954
     - path: main.aux
-      md5: ed39e0e8cc124a9e99bbb05fe81e8b9d
-      size: 36136
+      md5: a20f0521492a4212a0409d16966fe5b7
+      size: 19121
       isexec: true
     - path: main.log
-      md5: 4fd3c5739bc5c0641ca6688609ee6ac7
-      size: 28992
+      md5: d7a07d5e8ec56d3d2996cd9cbfa04256
+      size: 84859
       isexec: true
     - path: main.out
-      md5: ffb1bdf7095dba0eedccc9d1a2aee487
-      size: 7145
+      md5: 1dbab7c09bf19d8b92096de9bbbcb509
+      size: 5130
       isexec: true
     - path: main.tex
-      md5: 917c055d7968bdb312478df47eb73b30
-      size: 94479
+      md5: a3be8b308f343f1e256ea26fb4c9dfb8
+      size: 56759
     outs:
     - path: main.bbl
-      md5: da237c2028ee8d8bc5fe6f0c0737debc
-      size: 22559
+      md5: 2aee38aa05c75fb84568c3ba03fd8362
+      size: 15416
       isexec: true
     - path: main.blg
-      md5: 14feb27e47adf5035515c55ac1ac649a
-      size: 929
+      md5: c5af910b29c903b6bfab06a10e335bb2
+      size: 984
       isexec: true
     - path: main.pdf
-      md5: 2766b7d7d08df57881ce5d46d5a87326
-      size: 1661026
+      md5: 3fb9afb4ebe26e55e7756989511f8a78
+      size: 529140
       isexec: true
   arxiv:
     cmd: 'python arxiv.py  --title "Safety-critical computer vision: An empirical
       survey of adversarial evasion attacks and defences on computer vision systems"  --delete_these_dirs
-      images source  --extensions py yaml lock log csv  --delete_these_files "main.aux"
-      "main.blg" "main.out" "main.pdf" --logfile "main.log"'
+      generated kdd-nsl truthseeker --extensions py yaml lock log csv  --delete_these_files
+      "main.aux" "main.blg" "main.out" "main.pdf" --logfile "main.log"'
     deps:
     - path: arxiv.py
       md5: 1ddb1fe52c9217b71bf3ec6e917d443f
       size: 7804
     - path: main.log
-      md5: 4fd3c5739bc5c0641ca6688609ee6ac7
-      size: 28992
+      md5: d7a07d5e8ec56d3d2996cd9cbfa04256
+      size: 84859
     - path: main.pdf
-      md5: 2766b7d7d08df57881ce5d46d5a87326
-      size: 1661026
+      md5: 3fb9afb4ebe26e55e7756989511f8a78
+      size: 529140
     outs:
     - path: 'Safety-critical computer vision: An empirical survey of adversarial evasion
         attacks and defences on computer vision systems.zip'
-      md5: 410e79efd804079fe067fed53cada548
-      size: 6265396
+      md5: aa98c3c08ac7dcf2affb0efd511be535
+      size: 216396
       isexec: true
     - path: arxiv.log
-      md5: 9a586a130ba46854dbec5e3f95ea30ed
-      size: 1486
+      md5: db6abaff3cbb22781ba8fdf25033d0d3
+      size: 1505
       isexec: true
