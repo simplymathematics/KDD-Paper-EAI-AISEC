@@ -402,7 +402,7 @@ Our experimental methods are outlined in detail below.
 To show that these problems hold for `nice' data, we generated many numeric datasets.
 We sampled $n$ Gaussian distributed points near opposing corners of a hybercube in $p$ dimensions, separated by an $\ell_2$ distance of ten.
 We generated twenty unique datasets with the combinations of $p \in [10, 10^{2}, 10^{3}, 10^{4}]$ and $n \in [10^2, 10^3, 10^4,$ $10^5, 10^6]$.
-We also ran the framework on the the intrusion-detection KDD-NSL dataset\cite{kdd-nsl}, selected in such a way as to avoid duplicate rows, a common critique of the original~\cite{Dua:2019} as well as the Truthseeker dataset\cite{truthseeker} that divides malicious and benign twitter users based on a variety of usage data (see: Appendices~\ref{appendix-1}~and~\ref{appendix-2}).
+We also ran the framework on the the intrusion-detection KDD-NSL dataset~\cite{kdd-nsl}, selected in such a way as to avoid duplicate rows, a common critique of the original~\cite{Dua:2019} as well as the Truthseeker dataset~\cite{truthseeker} that divides malicious and benign twitter users based on a variety of usage data (see: Appendices~\ref{appendix-1}~and~\ref{appendix-2}).
 For adversarial retraining, the positive label was used for new data, classifying it as `malicious' and of the same class as a variety of network-based attacks included in the original data set.
 For our evaluations, we used 100,000 training samples, and one hundred consistent samples in the test set.
 
@@ -635,7 +635,7 @@ While this level of information is hard to obtain in real-world scenarios, we hi
 We demonstrated that a   well-chosen step size will add more strength to an attack than raw processing time.
 We confirmed earlier observations that accuracy and robustness are inversely related.
 We also show that model-building is computationally more expensive than attacks, especially in the context of adversarial retraining.
-Despite the optimistic results in published work, we find that perturbing a sample's features by only a single standard deviation is sufficient to reliably break classifiers while adversarial retraining as dictated by NIST standards\cite{falco2006using}.
+Despite the optimistic results in published work, we find that perturbing a sample's features by only a single standard deviation is sufficient to reliably break classifiers while adversarial retraining as dictated by NIST standards~\cite{falco2006using}.
 While this degree of perturbation may create obvious adversaries to humans, our best attempts to automatically detect them still resulted in decreased benign accuracy, higher training times, and a failure to prevent false classifications.
 Finally, we provide an easily extensible code-base for managing massive, parallel, and distributed experiments on various attacks and defences.
 Thus, we find adversarial retraining to be unsuitable for real-time, safety-critical, or security-sensitive applications of KSVMs.
