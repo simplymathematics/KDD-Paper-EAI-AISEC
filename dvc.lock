@@ -52,15 +52,12 @@ stages:
     - path: main.aux
       md5: a20f0521492a4212a0409d16966fe5b7
       size: 19121
-      isexec: true
     - path: main.log
-      md5: 134321174d3b58d65e41ba4735ef036c
+      md5: d746b88925cd54baf2b498931401a70b
       size: 98686
-      isexec: true
     - path: main.out
       md5: 1dbab7c09bf19d8b92096de9bbbcb509
       size: 5130
-      isexec: true
   big_run:
     cmd: pdflatex main.tex && bibtex main && pdflatex  main.tex && pdflatex  main.tex
     deps:
@@ -72,7 +69,7 @@ stages:
       size: 19121
       isexec: true
     - path: main.log
-      md5: d7a07d5e8ec56d3d2996cd9cbfa04256
+      md5: 046d20171e9333df5eed3925d10485e7
       size: 84859
       isexec: true
     - path: main.out
@@ -92,7 +89,7 @@ stages:
       size: 984
       isexec: true
     - path: main.pdf
-      md5: 3fb9afb4ebe26e55e7756989511f8a78
+      md5: 4b1a8d1196b1111c3ab87b1238ab9a30
       size: 529140
       isexec: true
   arxiv:
@@ -105,18 +102,18 @@ stages:
       md5: 1ddb1fe52c9217b71bf3ec6e917d443f
       size: 7804
     - path: main.log
-      md5: d7a07d5e8ec56d3d2996cd9cbfa04256
+      md5: 046d20171e9333df5eed3925d10485e7
       size: 84859
     - path: main.pdf
-      md5: 3fb9afb4ebe26e55e7756989511f8a78
+      md5: 4b1a8d1196b1111c3ab87b1238ab9a30
       size: 529140
     outs:
     - path: 'Safety-critical computer vision: An empirical survey of adversarial evasion
         attacks and defences on computer vision systems.zip'
-      md5: aa98c3c08ac7dcf2affb0efd511be535
-      size: 216396
+      md5: 3a37fe513f47b3dd6e17be61b8aa6d73
+      size: 216533
       isexec: true
     - path: arxiv.log
-      md5: db6abaff3cbb22781ba8fdf25033d0d3
+      md5: 0fff9e6d162502a00fd630d943d76252
       size: 1505
       isexec: true
