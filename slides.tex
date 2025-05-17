@@ -38,8 +38,8 @@ Department of Computing Science, Umeå University, Umeå, Sweden \email{cmeyers@
 \begin{frame}{Datasets}
     \begin{itemize}
         \item \textbf{Generated Data:} Normally distributed data with $n$ samples and $p$ dimensions, linearly separable. Up to $10^6$ samples.
-        \item \textbf{KDD-NSL:} Updated version of the KDD 99 dataset to remove repeated rows. 10s of features and 1000s of samples. \cite{kdd-nsl}
-        \item \textbf{Truthseeker:} Bot-net data collected via the Twitter API. 10s of features and 10s of thousands of samples. \cite{truthseeker}
+        \item \textbf{KDD-NSL:} Updated version of the KDD 99 dataset to remove repeated rows. 10s of features and 1000s of samples.~\cite{kdd-nsl}
+        \item \textbf{Truthseeker:} Bot-net data collected via the Twitter API. 10s of features and 10s of thousands of samples.~\cite{truthseeker}
         
     \end{itemize}
 \end{frame}
@@ -90,7 +90,7 @@ which will add significant training time to the model (already measured in hours
 \begin{frame}{Methods}
 \small
 We dedicated one core to each attack and tested a large number of hyperparameters at the same time using `joblib'\footnote{\href{https://joblib.readthedocs.io}{https://joblib.readthedocs.io}}. We used the \texttt{optuna}~\cite{optuna} framework for handling scheduling\footnote{\href{https://optuna.readthedocs.io}{https://optuna.readthedocs.io}}, hydra\footnote{\href{https://hydra.cc}{https://hydra.cc}} for hyperaparamater configuration management, and dvc\footnote{\href{https://dvc.org}{https://dvc.org}} to track results and guarantee reproducibility.
-  By using a massively parallel \cite{optuna} implementation, we were able to generate tens of thousands of strong examples from one-thousand input-output pairs in a way that extends to other attacks, frameworks (\textit{e.g.}~MXNet, Pytorch, Keras, Tensorflow), and defences (\textit{e.g.}~ART). Our implementation\footnote{\href{https://github.com/simplymathematics/deckard}{Our Github Repository}} allocates one core per process and runs them in series if there are more processes queued than available cores. All generated models, data, and results are stored to disk, as well as in an sqlite database, all specified in a single configuration file, allowing for arbitrary divisions of the evaluation pipeline across any number of diverse and distributed machines.
+  By using a massively parallel~\cite{optuna} implementation, we were able to generate tens of thousands of strong examples from one-thousand input-output pairs in a way that extends to other attacks, frameworks (\textit{e.g.}~MXNet, Pytorch, Keras, Tensorflow), and defences (\textit{e.g.}~ART). Our implementation\footnote{\href{https://github.com/simplymathematics/deckard}{Our Github Repository}} allocates one core per process and runs them in series if there are more processes queued than available cores. All generated models, data, and results are stored to disk, as well as in an sqlite database, all specified in a single configuration file, allowing for arbitrary divisions of the evaluation pipeline across any number of diverse and distributed machines.
 \end{frame}
 
 \begin{frame}{Model Performance vs Database Size}
@@ -98,13 +98,13 @@ We dedicated one core to each attack and tested a large number of hyperparameter
     \centering
     \begin{subfigure}{.45\textwidth}
       \centering
-      \includegraphics[width=\textwidth]{./generated/accuracy_vs_samples.pdf}
+      \includegraphics[width=\textwidth]{./generated/accuracy_vs_samples.eps}
       \caption{Model Performance vs Database Size}
     \end{subfigure}
     \hfill
     \begin{subfigure}{.45\textwidth}
       \centering
-      \includegraphics[width=\textwidth]{./generated/accuracy_vs_features.pdf}
+      \includegraphics[width=\textwidth]{./generated/accuracy_vs_features.eps}
       \caption{Model Performance vs Feature Space}
     \end{subfigure}
   \end{figure}
@@ -115,13 +115,13 @@ We dedicated one core to each attack and tested a large number of hyperparameter
     \centering
     \begin{subfigure}{.45\textwidth}
       \centering
-      \includegraphics[width=\textwidth]{./generated/train_time_vs_samples.pdf}
+      \includegraphics[width=\textwidth]{./generated/train_time_vs_samples.eps}
       \caption{Training and Attack Times vs Database Size}
     \end{subfigure}
     \hfill
     \begin{subfigure}{.45\textwidth}
       \centering
-      \includegraphics[width=\textwidth]{./generated/train_time_vs_features.pdf}
+      \includegraphics[width=\textwidth]{./generated/train_time_vs_features.eps}
       \caption{Training and Attack Times vs Feature Space}
     \end{subfigure}
   \end{figure}
@@ -131,7 +131,7 @@ We dedicated one core to each attack and tested a large number of hyperparameter
 \begin{frame}{Attack Parameters vs Accuracy}
   \begin{figure}
     \centering
-    \includegraphics[width=.75\textwidth]{./generated/accuracy_vs_attack_parameters.pdf}
+    \includegraphics[width=.75\textwidth]{./generated/accuracy_vs_attack_parameters.eps}
     \caption{Attack Parameters vs Accuracy}
   \end{figure}
   \label{fig:attack_accuracy}
@@ -140,7 +140,7 @@ We dedicated one core to each attack and tested a large number of hyperparameter
 \begin{frame}{Attack Parameters vs Time}
   \begin{figure}
     \centering
-    \includegraphics[width=.75\textwidth]{./generated/train_time_vs_attack_parameters.pdf}
+    \includegraphics[width=.75\textwidth]{./generated/train_time_vs_attack_parameters.eps}
     \caption{Attack Parameters vs Time}
   \end{figure}
 \end{frame}
@@ -151,13 +151,13 @@ We dedicated one core to each attack and tested a large number of hyperparameter
     \centering
     \begin{subfigure}[b]{0.45\textwidth}
       \centering
-      \includegraphics[width=\textwidth]{./generated/retrain_accuracy.pdf}
+      \includegraphics[width=\textwidth]{./generated/retrain_accuracy.eps}
       \caption{Adversarial Retraining: Accuracy over Retraining Cycles}
     \end{subfigure}
     \centering
     \begin{subfigure}[b]{0.45\textwidth}
       \centering
-      \includegraphics[width=\textwidth]{./generated/retrain_time.pdf}
+      \includegraphics[width=\textwidth]{./generated/retrain_time.eps}
       \caption{Adversarial Retraining: Training and Attack Times}
     \end{subfigure}
   \end{figure}
@@ -168,13 +168,13 @@ We dedicated one core to each attack and tested a large number of hyperparameter
     \centering
     \begin{subfigure}[b]{0.45\textwidth}
       \centering
-      \includegraphics[width=\textwidth]{./generated/confidence_vs_attack_parameters.pdf}
+      \includegraphics[width=\textwidth]{./generated/confidence_vs_attack_parameters.eps}
       \caption{False Negative Classifications Before Retraining}
     \end{subfigure}
     \centering
     \begin{subfigure}[b]{0.45\textwidth}
       \centering
-      \includegraphics[width=\textwidth]{./generated/retrain_confidence_vs_attack_parameters.pdf}
+      \includegraphics[width=\textwidth]{./generated/retrain_confidence_vs_attack_parameters.eps}
       \caption{False Negative Classifications After Retraining}
     \end{subfigure}
   \end{figure}
@@ -217,25 +217,25 @@ We dedicated one core to each attack and tested a large number of hyperparameter
      \centering
      \begin{subfigure}{0.4\textwidth}
          \centering
-         \includegraphics[width=\textwidth]{./kdd-nsl/retrain_accuracy.pdf}
+         \includegraphics[width=\textwidth]{./kdd-nsl/retrain_accuracy.eps}
          \caption{Accuracy After Retraining}
      \end{subfigure}
      \hfill
      \begin{subfigure}{0.4\textwidth}
          \centering
-         \includegraphics[width=\textwidth]{./kdd-nsl/retrain_time.pdf}
+         \includegraphics[width=\textwidth]{./kdd-nsl/retrain_time.eps}
          \caption{Retraining Time}
      \end{subfigure}
      \hfill
      \begin{subfigure}{0.4\textwidth}
          \centering
-         \includegraphics[width=\textwidth]{./kdd-nsl/confidence_vs_attack_parameters.pdf}
+         \includegraphics[width=\textwidth]{./kdd-nsl/confidence_vs_attack_parameters.eps}
          \caption{Before Retraining}
      \end{subfigure}
      \hfill
      \begin{subfigure}{0.4\textwidth}
          \centering
-         \includegraphics[width=\textwidth]{./kdd-nsl/retrain_confidence_vs_attack_parameters.pdf}
+         \includegraphics[width=\textwidth]{./kdd-nsl/retrain_confidence_vs_attack_parameters.eps}
          \caption{After Retraining}
      \end{subfigure}
      
@@ -248,25 +248,25 @@ We dedicated one core to each attack and tested a large number of hyperparameter
      \centering
      \begin{subfigure}{0.4\textwidth}
          \centering
-         \includegraphics[width=\textwidth]{./truthseeker/retrain_accuracy.pdf}
+         \includegraphics[width=\textwidth]{./truthseeker/retrain_accuracy.eps}
          \caption{Accuracy After Retraining}
      \end{subfigure}
      \hfill
      \begin{subfigure}{0.4\textwidth}
          \centering
-         \includegraphics[width=\textwidth]{./truthseeker/retrain_time.pdf}
+         \includegraphics[width=\textwidth]{./truthseeker/retrain_time.eps}
          \caption{Retraining Time}
      \end{subfigure}
      \hfill
      \begin{subfigure}{0.4\textwidth}
          \centering
-         \includegraphics[width=\textwidth]{./truthseeker/confidence_vs_attack_parameters.pdf}
+         \includegraphics[width=\textwidth]{./truthseeker/confidence_vs_attack_parameters.eps}
          \caption{Before Retraining}
      \end{subfigure}
      \hfill
      \begin{subfigure}{0.4\textwidth}
          \centering
-         \includegraphics[width=\textwidth]{./truthseeker/retrain_confidence_vs_attack_parameters.pdf}
+         \includegraphics[width=\textwidth]{./truthseeker/retrain_confidence_vs_attack_parameters.eps}
          \caption{After Retraining}
      \end{subfigure}
      \hfill
