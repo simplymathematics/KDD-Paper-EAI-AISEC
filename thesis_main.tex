@@ -54,8 +54,8 @@ Erik Elmroth\affil{1} }
 }
 
 \abstract{
-Even with widespread adoption of automated anomaly detection in safety-critical areas, both classical and advanced machine learning models are susceptible to first-order evasion attacks that fool models at run-time (\textit{e.g.} an automated firewall or an anti-virus application).
-Kernelized support vector machines (KSVMs) are an especially useful model because they combine a complex geometry with low run-time requirements (\textit{e.g.} when compared to neural networks), acting as a run-time lower bound when compared to contemporary models (\textit{e.g.} deep neural networks), to provide a cost-efficient way to measure model and attack run-time costs.
+Even with widespread adoption of automated anomaly detection in safety-critical areas, both classical and advanced machine learning models are susceptible to first-order evasion attacks that fool models at run-time (\textit{e.g.}, an automated firewall or an anti-virus application).
+Kernelized support vector machines (KSVMs) are an especially useful model because they combine a complex geometry with low run-time requirements (\textit{e.g.}, when compared to neural networks), acting as a run-time lower bound when compared to contemporary models (\textit{e.g.}, deep neural networks), to provide a cost-efficient way to measure model and attack run-time costs.
 To properly measure and combat adversaries, we propose a massively parallel projected gradient descent (PGD) evasion attack framework.
 Through theoretical examinations and experiments carried out using linearly-separable Gaussian normal data, we present (i) a massively parallel naive attack, we show that adversarial retraining is unlikely to be an effective means to combat an attacker even on linearly separable datasets, (ii) a cost effective way of evaluating models defences and attacks, and an extensible code base for doing so, (iii) an inverse relationship between adversarial robustness and benign accuracy, (iv) the lack of a general relationship between attack time and efficacy, and (v) that adversarial retraining increases compute time exponentially while failing to reliably prevent highly-confident false classifications.
 }
@@ -92,7 +92,7 @@ Through theoretical examinations and experiments carried out using linearly-sepa
 \keywords{Adversarial AI, Machine Learning, Machine Learning for Cybersecurity}
 \section{Introduction}
 There are several types of attacks that target machine learning models or data at different phases.
-Below we examine attacks where an attacker seeks to \emph{evade} a classifier by confusing the model at run-time (\textit{e.g.} a penetrated network or a malicious application being detected as benign).
+Below we examine attacks where an attacker seeks to \emph{evade} a classifier by confusing the model at run-time (\textit{e.g.}, a penetrated network or a malicious application being detected as benign).
 Robustness---the ability to withstand attacks---is usually measured by the accuracy gap before and after being attacked (benign and adversarial accuracy, respectively).
 While much work has gone into evaluating the robustness for neural networks~\cite{szegedy2013intriguing,madry2017towards,croce2020reliable} and regression algorithms~\cite{deka2019adversarial},
 Machine learning using support vector machines have proven to be useful in compute constrained applications like system intrusion detection~\cite{kim2003network}, network anomaly detection~\cite{mehmood2015svm}, and image recognition~\cite{tzotsos2008support}.
@@ -450,14 +450,14 @@ In the section below, we examine the performance, the robustness, the attack tim
     \begin{subfigure}{.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{./generated/accuracy_vs_samples.eps}
-        \caption{Model Performance vs Database Size: This depicts the benign performance  of a model  (\textit{e.g.}~accuracy on unperturbed data) when trained on databases of difference sizes for each tested kernel.}
+        \caption{Model Performance vs Database Size: This depicts the benign performance  of a model  (\textit{e.g.}, accuracy on unperturbed data) when trained on databases of difference sizes for each tested kernel.}
         \label{fig:samples_acc}
     \end{subfigure}
     \hfill
     \begin{subfigure}{.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{./generated/accuracy_vs_features.eps}
-        \caption{Model Performance vs Feature Space: This depicts the benign performance of a model (\textit{e.g.}~accuracy on unperturbed data) when trained on a differing number of features.
+        \caption{Model Performance vs Feature Space: This depicts the benign performance of a model (\textit{e.g.}, accuracy on unperturbed data) when trained on a differing number of features.
 In addition, marginal features are less correlated with the label than earlier features, simulating the addition of a large number of noisy features, leading to increasingly inaccurate models.}
         \label{fig:features_acc}
     \end{subfigure}
@@ -504,7 +504,7 @@ The bars reflect the 95\% confidence interval for all tested configurations.}
 
 \subsection{Performance: }
 By using a massively parallel optuna~\cite{optuna} implementation, we were able to generate tens of thousands of strong examples from one-thousand input-output pairs in a way that extends to other attacks, frameworks
-(\textit{e.g.}~MXNet, Pytorch, Keras, Tensorflow), and defences (\textit{e.g.}~ART).
+(\textit{e.g.}, MXNet, Pytorch, Keras, Tensorflow), and defences (\textit{e.g.}, ART).
 Our implementation\footnote{\href{https://github.com/simplymathematics/deckard/tree/main/examples/security}{Our Github Repository}} allocates one core per process and runs them in series if there are more processes queued than available cores.
 All generated models, data, and results are stored to disk, as well as in an sqlite database, all specified in a single configuration file, allowing for arbitrary divisions of the evaluation pipeline across any number of diverse and distributed machines.
 As we see from the experiment (Figure~\ref{fig:samples_time}), the lower bound of these calculations is a few hundred milliseconds, given that is how long they take when executed on a single core in series, so the scheduler overhead appears to be minor even though it's statistically significant.
@@ -613,7 +613,7 @@ However, as we found that increasing the database size has an inconsistent effec
 In order to conduct the wide number of experiments presented in a reasonable time, we used the smaller database size.
 
 Section~\ref{model} demonstrates how this analysis extends to more complex models.
-Other machine learning methods could of course also be used (\textit{e.g.} neural networks), but the main goal here was to examine the relative speed of attacks against polynomial time models more generally.
+Other machine learning methods could of course also be used (\textit{e.g.}, neural networks), but the main goal here was to examine the relative speed of attacks against polynomial time models more generally.
 Because our support vector machines require access to the entire data-set and create a set of support vectors that must be stored together in memory, we limited our tests to a single machine in order to minimize the complexities of network overhead.
 
 While our analysis focuses on support vector machines, the increased run-time complexity of neural networks suggests that the cost-gap issue is even worse with modern models though other research~\cite{meyers2023safety,croce2020reliable} has already noted this.
