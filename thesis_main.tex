@@ -24,7 +24,7 @@ T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \articletype{Research Article/Editorial}
 \setcounter{page}{01}
 
-  \def\copyrightholder{C. Meyers\textit{ et al.}, licensed to EAI}
+  \def\copyrightholder{C. Meyers \textit{et al.}, licensed to EAI}
   \copyrightnote{This is an open access article distributed under the terms of the \href{https://creativecommons.org/licenses/by-nc-sa/4.0/}{CC BY-NC-SA 4.0}, which permits copying, redistributing, remixing, transformation, and building upon the material in any medium so long as the original work is properly cited.}
   \def\articledoi{10.4108/XX.X.X.XX}
 \received{9-2023}
@@ -131,15 +131,15 @@ We present a novel parallel attack generation framework allows for massively gen
 \section{Related Work}
 
 Prior research has shown the inverse relationship between model robustness and model accuracy empirically~\cite{li2016general,tsipras2018robustness}.
-Tsipras et al.~\cite{tsipras2018robustness} highlighted this trade-off while examining neural nets on several image data-sets.
+Tsipras \texit{et al.}~\cite{tsipras2018robustness} highlighted this trade-off while examining neural nets on several image data-sets.
 Other experiments have shown a strong inverse relationship between model robustness and model accuracy for a large number of samples and accurate models~\cite{raghunathan2020understanding} more generally.
-Raghunathan et al.~\cite{raghunathan2020understanding} offer a theoretical explanation, suggesting that this trade-off is an artifact of imperfect sampling.
+Raghunathan \texit{et al.}~\cite{raghunathan2020understanding} offer a theoretical explanation, suggesting that this trade-off is an artifact of imperfect sampling.
 Even after explicitly minimizing the gap between benign and adversarial accuracy, the adversarial model had a nearly 6 times increase in adversarial error relative to the benign case.
 In addition, it was recently proven that \textit{all} classifiers are vulnerable to attacks from an adversary~\cite{dohmatob2019generalized}, which raises issues for safety-critical and real-time systems.
 Since all classifiers are doomed to fail against such attacks, then, at the very least, it is critical to quantify classification robustness.
 
 Current research suggests adopting only strong attacks in these evaluations~\cite{carlini2019evaluating}, but the strength of an attack is unknown prior to evaluation, and is context-dependent.
-Furthermore, Croce et al.~\cite{croce2020reliable} showed fifty cases where modern, published research failed to have reproducible robustness.
+Furthermore, Croce \texit{et al.}~\cite{croce2020reliable} showed fifty cases where modern, published research failed to have reproducible robustness.
 Other research has shown that randomized smoothing, obfuscated gradients, and even non-differentiable models fail to produce strong defenses against the proposed attacker~\cite{carlini2017towards,athalye2018obfuscated,uesato2018adversarial}.
 This is intuitive---creating a boundary condition sensitive to a particular attack does not remove the existence of a new gradient to be exploited.
 
@@ -151,7 +151,7 @@ In this section, we briefly discuss our choice in models, attacks, and defences.
 Support vector machines~\cite{cortes1995support} can be used for both classification and regression.
 The kernelized versions include arbitrary data transformations (through kernels) that casts a data-set into a higher-dimensional space, where the classes are linearly separable.
 The resulting models are determined by solving convex optimization problems, as detailed below.
-Trafalis et al.~\cite{trafalis2007robust} show that under benign perturbations, these models are robust and numerically stable, but little is known about their robustness against an adversarial attacker.
+Trafalis \texit{et al.}~\cite{trafalis2007robust} show that under benign perturbations, these models are robust and numerically stable, but little is known about their robustness against an adversarial attacker.
 
 A support vector machine is trained by solving the Lagrange dual problem~\cite{cortes1995support},
 \begin{equation}
@@ -336,10 +336,10 @@ However, many models are proprietary and can only be accessed through an API tha
 
 \paragraph{Limited Knowledge: }
 Even though our attack scenario only includes perfect knowledge, prior research~\cite{fredrikson2015model,biggio2013evasion,chakraborty2018adversarial,wang2019security,ateniese2015hacking} has shown that a surrogate model and data-set can be used to approximate $f(x)$ by $\hat{f}(x)$ and build a model using the class labels provided by the attacked model at test-time.
-Tram\`er et al.~\cite{tramer2016stealing} examined popular machine learning as a service platforms that return confidence values as well as class labels, showing that an attacker can build a proxy model by querying $ p + 1$ random $p-$dimensional inputs for unknown $p+1$ parameters.
+Tram\`er \texit{et al.}~\cite{tramer2016stealing} examined popular machine learning as a service platforms that return confidence values as well as class labels, showing that an attacker can build a proxy model by querying $ p + 1$ random $p-$dimensional inputs for unknown $p+1$ parameters.
 Further researchers~\cite{fredrikson2015model} were able to reverse engineer the training data-set through black-box attacks against a model that returns confidence levels, with the caveat that the inferred data might be a meta-prototypical example that does not appear in the original data-set.
 Fortunately for our attacker, such examples are still useful for determining the underlying data distributions even if they manage to preserve some of the privacy of the original data-set.
-Shokri et al.~\cite{shokri2017membership} presented a membership inference attack that determines whether a given data point belongs to the same distribution as the original training data using a set of proxy models.
+Shokri \texit{et al.}~\cite{shokri2017membership} presented a membership inference attack that determines whether a given data point belongs to the same distribution as the original training data using a set of proxy models.
 Although we tested only the perfect knowledge scenario, there are myriad ways for an attacker to get access to otherwise private data using nothing but standard machine learning APIs.
 
 
@@ -587,7 +587,7 @@ The bars reflect the 95\% confidence interval for all tested configurations.}
 
 
 \subsubsection{Adversarial Retraining}
-Adversarial retraining is a defense proposed by  Li et al.~\cite{li2016general}, that appends adversarial examples to the training set, labels them `malicious' and trains a classifier on a new set.
+Adversarial retraining is a defense proposed by  Li \texit{et al.}~\cite{li2016general}, that appends adversarial examples to the training set, labels them `malicious' and trains a classifier on a new set.
 This can be conducted iteratively, in `epochs'.
 Figures ~\ref{fig:retrain_acc}, and ~\ref{fig:retrain_time} depict this method conducted over 20 epochs on the RBF, polynomial, and linear kernels respectively.
 We can see that this process increases training time linearly, even when we exclude the attack generation time.
