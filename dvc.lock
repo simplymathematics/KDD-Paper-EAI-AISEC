@@ -62,14 +62,14 @@ stages:
     cmd: pdflatex main.tex && bibtex main && pdflatex  main.tex && pdflatex  main.tex
     deps:
     - path: bibliography.bib
-      md5: 2d7cdb00cb738f1d51469b2abac90bc2
-      size: 21954
+      md5: 4b9e85b7a9c204f853c7792f3b0634bc
+      size: 21956
     - path: main.aux
       md5: a20f0521492a4212a0409d16966fe5b7
       size: 19121
       isexec: true
     - path: main.log
-      md5: 046d20171e9333df5eed3925d10485e7
+      md5: 96c6560f44d5cf94af8bc6aca985f0ae
       size: 84859
       isexec: true
     - path: main.out
@@ -85,35 +85,34 @@ stages:
       size: 15416
       isexec: true
     - path: main.blg
-      md5: c5af910b29c903b6bfab06a10e335bb2
+      md5: 8e99b403d763429fdacb5d702ad63582
       size: 984
       isexec: true
     - path: main.pdf
-      md5: 4b1a8d1196b1111c3ab87b1238ab9a30
+      md5: fe3b508abee6b8d0f44e34e04825814a
       size: 529140
       isexec: true
   arxiv:
-    cmd: 'python arxiv.py  --title "Safety-critical computer vision: An empirical
-      survey of adversarial evasion attacks and defences on computer vision systems"  --delete_these_dirs
-      generated kdd-nsl truthseeker --extensions py yaml lock log csv  --delete_these_files
-      "main.aux" "main.blg" "main.out" "main.pdf" --logfile "main.log"'
+    cmd: python arxiv.py  --title "Massively Parallel Evasion Attacks and the Pitfalls
+      of Adversarial Retraining"  --delete_these_dirs generated kdd-nsl truthseeker
+      --extensions py yaml lock log csv  --delete_these_files "main.aux" "main.blg"
+      "main.out" "main.pdf" --logfile "main.log"
     deps:
     - path: arxiv.py
       md5: 1ddb1fe52c9217b71bf3ec6e917d443f
       size: 7804
     - path: main.log
-      md5: 046d20171e9333df5eed3925d10485e7
+      md5: 96c6560f44d5cf94af8bc6aca985f0ae
       size: 84859
     - path: main.pdf
-      md5: 4b1a8d1196b1111c3ab87b1238ab9a30
+      md5: fe3b508abee6b8d0f44e34e04825814a
       size: 529140
     outs:
-    - path: 'Safety-critical computer vision: An empirical survey of adversarial evasion
-        attacks and defences on computer vision systems.zip'
-      md5: 3a37fe513f47b3dd6e17be61b8aa6d73
-      size: 216533
+    - path: Massively Parallel Evasion Attacks and the Pitfalls of Adversarial Retraining.zip
+      md5: b48f1cbe283704c52a8a12909bb0af83
+      size: 198002
       isexec: true
     - path: arxiv.log
-      md5: 0fff9e6d162502a00fd630d943d76252
+      md5: a4d6783933c223c43bd0af00327c9833
       size: 1505
       isexec: true

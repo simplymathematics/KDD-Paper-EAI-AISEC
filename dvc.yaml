@@ -37,7 +37,7 @@ stages:
   arxiv:
     cmd: >-
       python arxiv.py 
-      --title "Safety-critical computer vision: An empirical survey of adversarial evasion attacks and defences on computer vision systems" 
+      --title "Massively Parallel Evasion Attacks and the Pitfalls of Adversarial Retraining" 
       --delete_these_dirs generated kdd-nsl truthseeker
       --extensions py yaml lock log csv 
       --delete_these_files "main.aux" "main.blg" "main.out" "main.pdf"
@@ -47,5 +47,5 @@ stages:
       - main.pdf
       - main.log
     outs:
-      - "Safety-critical computer vision: An empirical survey of adversarial evasion attacks and defences on computer vision systems.zip"
+      - "Massively Parallel Evasion Attacks and the Pitfalls of Adversarial Retraining.zip"
       - arxiv.log
